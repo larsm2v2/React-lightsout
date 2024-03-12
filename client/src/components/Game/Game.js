@@ -10,8 +10,8 @@ const Game = ({size}) => {
                 new Array(size)
                 .fill()
                 .map (c => Math.random() < .4))
-    console.log(Game)
-    const [game,setBoard] = useState([createGrid()])
+    console.log(createGrid)
+    const [game,setGame] = useState([createGrid()])
     
     const toggleLights = (row,col) => {
         const copy = [...game.map(r => [...r])]
@@ -25,14 +25,14 @@ const Game = ({size}) => {
             copy[row][col+1] = !copy[row][col+1]
         if (col  > 0)
             copy[row][col-1] = !copy[row][col-1]
-        setBoard(copy);
+        setGame(copy);
     }
 
         const gameEnds = () => game.every(row => row.every(cell => !cell))
     return (
         <div className="Game">
             {gameEnds()
-            ?   'You won'
+            ?   <div className="won">You won!</div>
             :   game.map((row,rowIndex) => 
                 <div className="row" key={rowIndex}>
                     {row.map((_,colIndex) => (

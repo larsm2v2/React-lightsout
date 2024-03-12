@@ -1,0 +1,27 @@
+.App-colorsize {
+    --size: 25px;
+    --white: #ffffff;
+    --yellow:  #fbff28;
+    --silver:#919191;
+    --off_background_purple: #4c374e;
+    --on_pink:  #df5ba8;
+  }
+
+
+
+.title {
+    font-size: calc(var(--size)*3);
+    letter-spacing: 3px;
+    margin-bottom: var(--size);
+}
+    .white {
+        color: var(--white);
+    }
+
+    .yellow {
+        color: var(--yellow);
+        text-shadow:
+            0 0 calc(var(--size)) var(--white),
+            0 0 calc(var(--size)*2) var(--white),
+            0 0 calc(var(--size)*4) var(--white)
+    }

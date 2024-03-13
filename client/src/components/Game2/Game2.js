@@ -18,11 +18,11 @@ const Game = () => {
     console.log(createGrid());
 
     return (
-        <div className='Game'>
+        <div className='Game2'>
             {game.map((row,rowIndex) =>
                 <div className="row" key={rowIndex}>
                     {row.map((cell,colIndex) => (
-                       <div>{rowIndex}{colIndex}</div> 
+                       <button key={`${rowIndex}-${colIndex}`}>{rowIndex}{colIndex}</button> 
                     ))}
                 </div>
             )}

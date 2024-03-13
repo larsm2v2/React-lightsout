@@ -1,4 +1,5 @@
-.Game {
+.Game2 {
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
@@ -8,6 +9,12 @@
         0 0 calc(.5*var(--size)) #fff
 }
 
+button {
+    width: var(--size);
+    height: var(--size);
+    border: none;
+    margin: var(--size);
+}
 .won {
     color: white;
 

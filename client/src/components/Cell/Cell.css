@@ -1,9 +1,10 @@
 .on,.off{
-    width: var(--size);
-    height: var(--size);
-    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
     border: none;
-    margin: var(--size);
+    justify-content: center;
+    margin: var(--size*2);
 }
 .on {
     background: #df5ba8;;
@@ -12,3 +13,8 @@
 .off {
     background-color:#4c374e;
 }
+
+/*
+width: var(--size*3);
+height: var(--size*3);
+*/

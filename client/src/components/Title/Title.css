@@ -9,10 +9,11 @@
 
 
 
-.title {
-    font-size: calc(var(--size)*3);
+.Title {
+    font-size: calc(var(--size)*20);
     letter-spacing: 3px;
     margin-bottom: var(--size);
+    align-items: center;
 }
     .white {
         color: var(--white);

@@ -1,15 +1,25 @@
 .App {
   font-family: 'Monoton', cursive;
-  min-height: 500px;
+  min-height: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: calc(2*var(--size));
+
+}
+
+.Menu {
+  font-family: 'Monoton', cursive;
+  min-height: 10px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: calc(2*var(--size));
 }
-
 .root {
-  --size: 40px;
+  --size: 25px;
   --white: #ffffff;
   --yellow:  #fbff28;
   --silver:#919191;
@@ -17,7 +27,7 @@
   --on_pink:  #df5ba8;
 }
 
-/*
+
 @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Neonderthaw&family=Ultra&display=swap');
 html,body{
   margin: 1;
@@ -25,4 +35,3 @@ html,body{
   height: 100vh;
   background-color: rgb(33, 33, 33);
 }
-*/

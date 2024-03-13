@@ -2,18 +2,22 @@ import React, {useState} from 'react';
 import './Game.css';
 import Cell from "../Cell/Cell"
 
+
+const puzzle1 = [20,22,24];
 const Game = ({size}) => {
+    var gamerunning = false;
     const createGrid = () => 
         new Array(size)
             .fill()
             .map (r =>
                 new Array(size)
                 .fill()
-                .map (c => Math.random() < .4))
+                .map (c => false))
     console.log(createGrid())
     const [game,setGame] = useState(createGrid())
     
     const toggleLights = (row,col) => {
+        gamerunning = true
         const copy = [...game.map(r => [...r])]
 
         copy[row][col] = !copy[row][col]
@@ -27,8 +31,9 @@ const Game = ({size}) => {
             copy[row][col-1] = !copy[row][col-1]
         setGame(copy);
     }
-
-        const gameEnds = () => game.every(row => row.every(cell => !cell))
+    
+    const gameEnds = () => gamerunning && game.every(row => row.every(cell => !cell))
+    
     return (
         <div className="Game">
             {gameEnds()
@@ -54,3 +59,4 @@ const Game = ({size}) => {
 
 export default Game;
 
+/*Math.random() < .6*/

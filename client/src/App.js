@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import './App.css';
 
 // Import Components //
@@ -12,10 +12,15 @@ import Header from './components/Header/Header';
 
 const App = () => {
   return (
-    <div className="App">
-    <Header/>
-    <Game size={5}/>
-  </div>
+    <Fragment>
+      <div className="App">
+        <Game size={5} />
+      </div>
+      <div className="Menu">
+        <Title/>
+        <Menu/>
+      </div>
+    </Fragment>
   );
 
 }

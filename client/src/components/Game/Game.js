@@ -10,8 +10,8 @@ const Game = ({size}) => {
                 new Array(size)
                 .fill()
                 .map (c => Math.random() < .4))
-    console.log(createGrid)
-    const [game,setGame] = useState([createGrid()])
+    console.log(createGrid())
+    const [game,setGame] = useState(createGrid())
     
     const toggleLights = (row,col) => {
         const copy = [...game.map(r => [...r])]

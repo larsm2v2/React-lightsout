@@ -4,6 +4,7 @@ import './App.css';
 // Import Components //
 import Title from './components/Title/Title';
 import Game from './components/Game/Game';
+import Game2 from './components/Game2/Game2';
 import Menu from './components/Menu/Menu';
 import Header from './components/Header/Header';
 

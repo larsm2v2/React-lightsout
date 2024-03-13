@@ -8,11 +8,6 @@
         0 0 calc(.5*var(--size)) #fff
 }
 
-.row {
-    display: flex;
-    box-sizing: border-box;
-
-}
 .won {
     color: white;
 

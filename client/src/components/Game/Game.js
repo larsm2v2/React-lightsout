@@ -16,7 +16,12 @@ const Game = ({size}) => {
                 /*2*/ /*.map (c => *Math.random() < .6))*/
     const [game,setGame] = useState(createGrid())
     let [gamerunning, setGamerunning] = useState(false)
-
+    
+    const setLights = (row,col) => {
+        setGamerunning(gamerunning = true)
+        const copy = [...game.map(r => [...r])]
+        setGame(copy)
+    }
     const toggleLights = (row,col) => {
         setGamerunning(gamerunning = true)
         const copy = [...game.map(r => [...r])]
@@ -31,7 +36,7 @@ const Game = ({size}) => {
             copy[row][col-1] = !copy[row][col-1]
         setGame(copy)
     }
-    
+    console.log(toggleLights)
     const gameEnds = () => gamerunning && game.every(row => row.every(cell => !cell))
     
     return (

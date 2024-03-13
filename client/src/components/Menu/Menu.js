@@ -1,4 +1,5 @@
 import React/*{Fragment, useEffect, useState}*/ from "react";
+import './Menu.css';
 
 /*const mybutton = async id => {
     const 
@@ -33,7 +34,7 @@ function Menu() {
                           <tr>
                               <td>
                                   <button
-                                      className="btn btn-warning btn-lg"
+                                      className="buttonmenu"
                                       onClick={powerbutton}
                                   >
                                   </button>
@@ -43,7 +44,7 @@ function Menu() {
                           <tr>
                               <td>
                                   <button
-                                      className="btn btn-warning btn-lg"
+                                      className="buttonmenu"
                                       onClick={startbutton}
                                   >
                                   </button>
@@ -53,7 +54,7 @@ function Menu() {
                           <tr>
                               <td>
                                   <button
-                                      className="btn btn-warning btn-lg"
+                                      className="buttonmenu"
                                       onClick={soundbutton}
                                   >
                                   </button>
@@ -63,7 +64,7 @@ function Menu() {
                           <tr>
                               <td>
                                   <button
-                                      className="btn btn-warning btn-lg"
+                                      className="buttonmenu"
                                       onClick={helpbutton}
                                   >
                                   </button>
@@ -73,12 +74,12 @@ function Menu() {
                           <tr>
                               <td>
                                   <button
-                                      className="btn btn-warning btn-lg"
+                                      className="buttonmenu"
                                       onClick={modesbutton}
                                   >
                                   </button>
                               </td>
-                              <th>Modes</th>
+                              <th>MODES</th>
                           </tr>
                       </tbody>
                   </table>

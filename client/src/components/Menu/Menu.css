@@ -1,0 +1,26 @@
+.Menu {
+    display: flex;
+    text-align: center;
+    font-family: 'Times New Roman';
+    flex-direction: row;
+    justify-content:right;
+    align-content: center;
+    align-items:flex-start;
+    padding-top: calc(2*var(--size));
+    padding: 10px;
+    height: 120px;
+    width: 400px;
+    background-color: #919191;
+  }
+
+.buttonmenu {
+  background-color:#cbe924;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffff00;
+  cursor: pointer;
+  font-weight: 500;
+  height: 0.7rem;
+  padding: 0 1.6rem;
+}

@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import './App.css';
 
+
 // Import Components //
 import Title from './components/Title/Title';
 import Game from './components/Game/Game';
@@ -13,16 +14,15 @@ import Header from './components/Header/Header';
 const App = () => {
   return (
     <Fragment>
-      <div className="App">
+      <div className="AppFormat">
         <Game size={5} />
       </div>
-      <div className="Menu">
+      <div className="MenuFormat">
         <Title/>
         <Menu/>
       </div>
     </Fragment>
   );
-
 }
 
 

@@ -29,7 +29,6 @@ const Game = ({size}) => {
         if (col  > 0)
             copy[row][col-1] = !copy[row][col-1]
         setGame(copy)
-        (gamesetup => !gamesetup);
     }
     
     const gameEnds = () => !gamesetup && game.every(row => row.every(cell => !cell))

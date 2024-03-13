@@ -28,7 +28,6 @@ const modesbutton = (e) => {
 
 function Menu() {
   return (
-                <body>
                   <table>
                       <tbody>
                           <tr>
@@ -83,7 +82,6 @@ function Menu() {
                           </tr>
                       </tbody>
                   </table>
-              </body>
   );
 }
 

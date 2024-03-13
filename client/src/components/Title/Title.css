@@ -14,13 +14,14 @@
     letter-spacing: 3px;
     margin-bottom: var(--size);
     align-items: center;
+    font:
 }
     .white {
         color: var(--white);
     }
 
     .yellow {
-        color: var(--yellow);
+        color:var(--yellow);
         text-shadow:
             0 0 calc(var(--size)) var(--white),
             0 0 calc(var(--size)*2) var(--white),

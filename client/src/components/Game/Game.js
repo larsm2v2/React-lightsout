@@ -5,7 +5,6 @@ import Cell from "../Cell/Cell"
 
 const puzzle1 = [20,22,24];
 const Game = ({size}) => {
-    let gamesetup = true;
     const createGrid = () => 
         new Array(size)
             .fill()
@@ -16,8 +15,10 @@ const Game = ({size}) => {
                 /*1*/ .map (c => false))
                 /*2*/ /*.map (c => *Math.random() < .6))*/
     const [game,setGame] = useState(createGrid())
-    
+    let [gamerunning, setGamerunning] = useState(false)
+
     const toggleLights = (row,col) => {
+        setGamerunning(gamerunning = true)
         const copy = [...game.map(r => [...r])]
         copy[row][col] = !copy[row][col]
         if (row < size - 1)
@@ -31,7 +32,7 @@ const Game = ({size}) => {
         setGame(copy)
     }
     
-    const gameEnds = () => !gamesetup && game.every(row => row.every(cell => !cell))
+    const gameEnds = () => gamerunning && game.every(row => row.every(cell => !cell))
     
     return (
         <div className="Game">
@@ -45,7 +46,8 @@ const Game = ({size}) => {
                             toggleLights={toggleLights}
                             isOn = {game[rowIndex][colIndex]}
                             rowIndex={rowIndex}
-                            colIndex={colIndex}/>
+                            colIndex={colIndex}
+                            />
                     ))}
                 </div>
                 )}

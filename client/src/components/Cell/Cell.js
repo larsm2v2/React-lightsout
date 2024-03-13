@@ -8,8 +8,7 @@ const Cell = ({rowIndex,colIndex,toggleLights,isOn}) => {
 
     return <button
         className={isOn ? "on" : "off"}
-        onClick = {handleClick}
-        gamerunning = {true}/>
+        onClick = {handleClick}/>
 
 }
     export default Cell;

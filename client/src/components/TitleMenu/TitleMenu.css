@@ -1,0 +1,12 @@
+.MenuFormat {
+    display: flex;
+    text-align: center;
+    align-items:flex-start;
+    flex-direction: row;
+    justify-content:center;
+    padding: 10px;
+    height: 120px;
+    width: 400px;
+    background-color: #919191;
+  }
+  

@@ -3,10 +3,9 @@ import './App.css';
 
 
 // Import Components //
-import Title from './components/Title/Title';
 import Game from './components/Game/Game';
 import Game2 from './components/Game2/Game2';
-import Menu from './components/Menu/Menu';
+import TitleMenu from './components/TitleMenu/TitleMenu';
 import Header from './components/Header/Header';
 
 //Components//
@@ -16,10 +15,7 @@ const App = () => {
     <Fragment>
       <div className="AppFormat">
         <Game size={5} />
-      </div>
-      <div className="MenuFormat">
-        <Title/>
-        <Menu/>
+        <TitleMenu/>
       </div>
     </Fragment>
   );

@@ -3,7 +3,7 @@ import './Game.css';
 import Cell from "../Cell/Cell"
 
 
-const puzzle1 = [20,22,24];
+const puzzle1 = ['2-0', '2-2', '2-4'];
 const Game = ({size}) => {
     const createGrid = () => 
         new Array(size)
@@ -15,16 +15,11 @@ const Game = ({size}) => {
                 /*1*/ .map (c => false))
                 /*2*/ /*.map (c => *Math.random() < .6))*/
     const [game,setGame] = useState(createGrid())
-    let [gamerunning, setGamerunning] = useState(false)
+    const [gamerunning, setGamerunning] = useState(false)
     
-    const setLights = (row,col) => {
-        setGamerunning(gamerunning = true)
-        const copy = [...game.map(r => [...r])]
-        setGame(copy)
-    }
     const toggleLights = (row,col) => {
-        setGamerunning(gamerunning = true)
-        const copy = [...game.map(r => [...r])]
+        setGamerunning(true)
+        let copy = [...game.map(r => [...r])]
         copy[row][col] = !copy[row][col]
         if (row < size - 1)
             copy[row+1][col] = !copy[row+1][col]
@@ -36,9 +31,23 @@ const Game = ({size}) => {
             copy[row][col-1] = !copy[row][col-1]
         setGame(copy)
     }
-    console.log(toggleLights)
+
     const gameEnds = () => gamerunning && game.every(row => row.every(cell => !cell))
     
+
+    useState(() => {
+        const updatedGame = createGrid();
+        puzzle1.forEach(cell => {
+            const [rowIndex, colIndex] = cell.split('-').map(Number);
+            if (rowIndex >= 0 && rowIndex < size && colIndex >= 0 && colIndex < size) {
+                updatedGame[rowIndex][colIndex] = true;
+            }
+        });
+        setGame(updatedGame);
+    }, [size]); // size should be the only dependency
+
+    console.log(setGame);
+
     return (
         <div className="Game">
             {gameEnds()
@@ -60,8 +69,15 @@ const Game = ({size}) => {
 
         </div>
     )
-    console.log(game)
+
 }
 
 export default Game;
 
+/*
+    const setLights = (row,col) => {
+        setGamerunning(gamerunning = true)
+        const copy = [...game.map(r => [...r])]
+        setGame(copy)
+    }
+*/

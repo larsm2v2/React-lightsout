@@ -9,6 +9,7 @@ const Cell = ({rowIndex,colIndex,toggleLights,isOn}) => {
     return <button
         className={isOn ? "on" : "off"}
         onClick = {handleClick}/>
+ 
 
 }
     export default Cell;

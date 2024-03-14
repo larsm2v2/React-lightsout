@@ -19,18 +19,6 @@
   padding-top: calc(2*var(--size));
 }  
 
-.MenuFormat {
-  display: flex;
-   text-align: center;
-  flex-direction: row;
-  justify-content:center;
-  align-items:center;
-  padding: 10px;
-  height: 120px;
-  width: 400px;
-  background-color: #919191;
-}
-
 .root {
   --size: 25px;
   --white: #ffffff;
@@ -44,9 +32,5 @@
 
 html,body{
   background-color: rgb(33, 33, 33);
-  align-items: center;
-}
-
-div,span{
   align-items: center;
 }

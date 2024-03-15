@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import './Game.css';
 import Cell from "../Cell/Cell"
+import puzzles from "../Puzzle/Puzzle"
 
 
 const puzzle1 = ['2-0', '2-2', '2-4'];
-const Game = ({size}) => {
+const Game = ({size,level}) => {
     const createGrid = () => 
         new Array(size)
             .fill()
@@ -35,9 +36,10 @@ const Game = ({size}) => {
     const gameEnds = () => gamerunning && game.every(row => row.every(cell => !cell))
     
 
-    useState(() => {
+    useEffect(() => {
         const updatedGame = createGrid();
-        puzzle1.forEach(cell => {
+        const puzzleConfig = puzzles['0-0']['0-2'] || [];
+        puzzleConfig.forEach(cell => {
             const [rowIndex, colIndex] = cell.split('-').map(Number);
             if (rowIndex >= 0 && rowIndex < size && colIndex >= 0 && colIndex < size) {
                 updatedGame[rowIndex][colIndex] = true;

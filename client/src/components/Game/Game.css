@@ -32,3 +32,13 @@
         0 0 calc(2*var(--size)) white,
         0 0 calc(4*var(--size)) white;
 }
+
+@keyframes flash {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.flash {
+    animation: flash 1s infinite;
+}

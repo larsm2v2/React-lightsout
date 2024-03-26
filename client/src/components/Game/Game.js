@@ -2,7 +2,7 @@ import React, {useState, useEffect, useCallback, useMemo} from 'react';
 import './Game.css';
 import Cell from "../Cell/Cell"
 import puzzles from "../Puzzle/Puzzle"
-
+import { useGlobalState } from '../../globalState';
 
 const Game = ({mode,size,level}) => {
     const createGrid = useCallback(() => 
@@ -17,7 +17,9 @@ const Game = ({mode,size,level}) => {
                 /*2*/ /*.map (c => *Math.random() < .6))*/
     const [game,setGame] = useState(createGrid())
     const [gamerunning, setGamerunning] = useState(false)
-    const [flashingIndex, setFlashingIndex] = useState(0)
+    const [isAnimating, setIsAnimating] = useState(false)
+    const [currentIndex,setCurrentIndex] = useState('')
+    const [creation, setCreation] = useState(false)
     
     const toggleLights = (row,col) => {
         setGamerunning(true)
@@ -34,14 +36,15 @@ const Game = ({mode,size,level}) => {
         setGame(copy)
     }
 
+        //For puzzle creation
     const toggleLightsCreate = (row,col) => {
         setGamerunning(false)
         let copy = [...game.map(r => [...r])]
         copy[row][col] = !copy[row][col]
         setGame(copy)
-    }
+        }
 
-    const gameEnds = () => gamerunning && game.every(row => row.every(cell => !cell))
+    const gameEnds = useCallback(() => {gamerunning && game.every(row => row.every(cell => !cell))},[gamerunning,game]) 
     
     const flashingAddresses = useMemo(() => [
         '0-0', '1-0', '2-0', '3-0', '4-0',
@@ -50,6 +53,8 @@ const Game = ({mode,size,level}) => {
         '0-1', '1-1', '2-1', '3-1', '3-2',
         '3-3', '2-3', '1-3', '1-2', '2-2'
     ],[]);
+
+
 
     useEffect(() => {
         const updatedGame = createGrid();
@@ -67,24 +72,55 @@ const Game = ({mode,size,level}) => {
     }, [size, createGrid]); // size should be the only dependency
     
     useEffect(() => {
-        const timeoutId = setTimeout(() => {
-            setFlashingIndex(prevIndex => (prevIndex + 1) % flashingAddresses.length);
-        }, 500); // Change address every 0.5 seconds
-    
-        return () => clearTimeout(timeoutId);
-    }, [flashingAddresses]);
+        let animationTimeout;
+
+        const startAnimation = () => {
+          setIsAnimating(true);
+          animationTimeout = setTimeout(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % flashingAddresses.length);
+            setIsAnimating(false);
+          }, 400);
+        };
+      
+        if (gameEnds() && !isAnimating) {
+          startAnimation();
+        }
+        return () => clearTimeout(animationTimeout);
+      }, [isAnimating, flashingAddresses, gameEnds]);
 
 
     return (
         <div className="Game">
-            {gameEnds()
-            ?   game.map((address, index) => (
-                <div className={`flash ${flashingIndex === index ? 'active' : ''}`} key={index}>
-                    {address}
+            {gameEnds() ? (
+                game.map((row,rowIndex) => 
+                <div className="row" key={rowIndex}>
+                    {row.map((_, colIndex) => (
+                        <button
+                            key={`${rowIndex}-${colIndex}`}
+                            className={`cell ${flashingAddresses[currentIndex] === `${rowIndex}-${colIndex}` && 'blinkdiv'}`}
+                        />
+                    ))}
                 </div>
-            ))
-            
-            :   game.map((row,rowIndex) => 
+                )
+            ) : ( creation ? (
+            game.map((row,rowIndex) =>
+                <div className="row" key={rowIndex}>
+                    {row.map((_,colIndex) => (
+                        <Cell
+                        key={`${rowIndex}-${colIndex}`}
+                        toggleLights={toggleLightsCreate}
+                        isOn = {game[rowIndex][colIndex]}
+                        rowIndex={rowIndex}
+                        colIndex={colIndex}
+                        />
+                    ))
+
+                    }
+
+                </div>
+            )        
+            ) : (
+                game.map((row,rowIndex) => 
                 <div className="row" key={rowIndex}>
                     {row.map((_,colIndex) => (
                         <Cell
@@ -94,11 +130,12 @@ const Game = ({mode,size,level}) => {
                             rowIndex={rowIndex}
                             colIndex={colIndex}
                             />
-                    ))}
+                    ))
+                    }               
                 </div>
                 )
             
-                    }
+            ))}
         </div>
     )
 

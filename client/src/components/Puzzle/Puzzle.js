@@ -1,5 +1,6 @@
-import React from "react";
 
+/*Express Routes and Database
+*/
 const puzzles = {
     '0-0': {
     //6 Step Levels
@@ -118,10 +119,12 @@ const puzzles = {
                 '3-0','3-1','3-2','3-3','3-4',
                 '4-0','4-1','4-2','4-3','4-4'],
             },
-        // Empty
+        
         '4-3': {
+            // Empty
             '4-3': [],
-            '4-4': ['2-0','2-2','2-4']
+            // One Click-Win
+            '4-4': ['0-0','1-0','0-1']
         },
         //opening sequence
     '4-4': {

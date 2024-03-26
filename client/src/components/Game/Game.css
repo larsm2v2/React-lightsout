@@ -33,12 +33,20 @@
         0 0 calc(4*var(--size)) white;
 }
 
-@keyframes flash {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-}
+@keyframes purplepink {  
+    0% { background-color: #4c374e; }
+    50% { background-color: #4c374e; }
+    51% { background-color: #df5ba8; }
+    100% { background-color: #df5ba8; }
+  }
+  
+  .blinkdiv {
+    background-color: #4c374e;
+    animation-name: purplepink;
+    animation-iteration-count: calc(1);  
+    animation-duration: 0.4s; 
+  } 
 
-.flash {
-    animation: flash 1s infinite;
-}
+  .nonblinkdiv {
+    background-color: #4c374e;
+  }

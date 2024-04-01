@@ -1,7 +1,7 @@
 pipeline {
     agent { 
         node {
-            label 'docker-agent-python'
+            label 'docker-agent-react'
             }
       }
     triggers {
@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
-                cd myapp
+                cd ./
                 pip install -r requirements.txt
                 '''
             }
@@ -21,7 +21,7 @@ pipeline {
             steps {
                 echo "Testing.."
                 sh '''
-                cd myapp
+                cd React-LightsOut
                 python3 hello.py
                 python3 hello.py --name=Brad
                 '''

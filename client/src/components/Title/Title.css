@@ -1,9 +1,10 @@
 .Title {
+    display:flex;
     font-size: calc(var(--size)*25);
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-bottom: var(--size);
     align-items:flex-start;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 
@@ -18,7 +19,8 @@
 
     .out {
         color:darkgoldenrod;
-        align-items:left;
+        align-self:flex-end;
+        /* margin-left: auto; */
         align-content:flex-start;
         justify-content: right;
         transform:rotate(90deg);

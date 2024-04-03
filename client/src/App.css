@@ -1,36 +1,25 @@
-.PageFormat {
+.PageFormat, .AppFormat {
   font-family: 'Monoton', cursive;
-  min-height: 10px;
+  min-height: 100vh; /* Updated min-height to fill the viewport */
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: calc(2*var(--size));
-
+  padding-top: calc(2 * var(--size));
 }
-
-.AppFormat {
-  font-family: 'Monoton', cursive;
-  min-height: 10px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: calc(2*var(--size));
-}  
 
 .root {
   --size: 25px;
   --white: #ffffff;
-  --yellow:  #fbff28;
-  --silver:#919191;
+  --yellow: #fbff28;
+  --silver: #919191;
   --off_background_purple: #4c374e;
-  --on_pink:  #df5ba8;
+  --on_pink: #df5ba8;
   align-items: center;
 }
 
-
-html,body{
+html, body {
   background-color: rgb(33, 33, 33);
-  align-items: center;
+  margin: 0; /* Added to remove default margin */
+  padding: 0; /* Added to remove default padding */
 }

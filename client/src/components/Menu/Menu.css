@@ -1,26 +1,54 @@
 .Menu {
-    display: flex;
-    text-align: center;
-    font-family: 'Times New Roman';
-    flex-direction: row;
-    justify-content:right;
-    align-content: center;
-    align-items:flex-start;
-    padding-top: calc(2*var(--size));
-    padding: 10px;
-    height: 120px;
-    width: 400px;
-    background-color: #919191;
-  }
+  display: flex;
+  text-align: center;
+  font-family: 'Times New Roman';
+  flex-direction: row;
+  justify-content: space-around; /* Updated to evenly distribute buttons */
+  align-items: center;
+  padding: 0px;
+  height: calc(var(--size) * 10);
+  width: calc(var(--size) * 30); /* Updated width to fill the container */
+  max-height: 500px;
+  max-width: 400px;
+  background-color: #919191;
+}
 
 .buttonmenu {
-  background-color:#cbe924;
-  border-radius: 8px;
-  border-style: none;
-  box-sizing: border-box;
-  color: #ffff00;
+  background-color: #cbe924;
+  border-radius: calc(var(--size) * 1.9);
+  border: none;
+  color: #ffffff;
   cursor: pointer;
-  font-weight: 500;
-  height: 0.7rem;
-  padding: 0 1.6rem;
+  font-weight: 750;
+  height: calc(var(--size) * 1.9); /* Adjusted button height for better appearance */
+  width: calc(var(--size) * 20); 
+  padding: calc(var(--size) * 0); /* Adjusted button padding for better appearance */
+  text-align: center;
+  max-height: 30px;
+  max-width: 200px;
+  min-height: 15px;
+  min-width: 50px;
+  font-size: calc(var(--size) * 1.9);
+}
+
+.tablerow {
+  display: flex;
+  height: calc(var(--size) * 5);
+  width: calc(var(--size) * 30);
+  padding: calc(var(--size) * 0);
+  max-height: 30px;
+  max-width: 200px;
+  min-height: 15px;
+  min-width: 50px;
+}
+
+.tabledata {
+  display: flex;
+  height: calc(var(--size) * 3);
+  width: calc(var(--size) * 30);
+  padding: calc(var(--size) * 0);
+  max-height: 30px;
+  max-width: 200px;
+  min-height: 15px;
+  min-width: 50px;
 }

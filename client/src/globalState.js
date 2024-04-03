@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+
 export function useGlobalState(defaultValues) {
     const [state, setState] = useState(defaultValues);
 

@@ -4,9 +4,13 @@
     align-items:flex-start;
     flex-direction: row;
     justify-content:center;
-    padding: 10px;
-    height: 120px;
-    width: 400px;
+    padding: calc(var(--size) * 0.4);
+    height: calc(var(--size) * 13 * 1.5);
+    width: calc(var(--size) * 40 * 1.5);
+    max-height: 300px;
+    max-width: 400px;
+    min-height: 200px;
+    min-width: 200px;
     background-color: #919191;
   }
   

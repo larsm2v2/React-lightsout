@@ -12,3 +12,12 @@ code {
     monospace;
 }
 */
+:root {
+  --size: 1vw ; /* Adjust the size value as needed */
+  --white: #ffffff;
+  --yellow: #fbff28;
+  --silver: #919191;
+  --off_background_purple: #4c374e;
+  --on_pink: #df5ba8;
+  align-items: center;
+}

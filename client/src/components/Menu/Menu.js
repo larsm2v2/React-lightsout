@@ -1,95 +1,128 @@
-import React, {Fragment, useEffect, useState} from "react";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
 import './Menu.css';
-import { useGlobalState } from "../../globalState.js";
+import { useGlobalState } from "../../globalVariables";
+import { puzzle_convert } from "../Puzzle/KeyConversion.js";
+import puzzles from "../Puzzle/Puzzle.js";
+import Resetpuzzlebutton from '../ResetPuzzle.js'
 
+export default function Menu() {
+    const { game, setGame,
+        gamerunning, setGamerunning,
+        playGame, setPlayGame,
+        createGame, setCreateGame,
+        autoGame, setAutoGame,
+        success, setSuccess,
+        currentGroup,setCurrentGroup,
+        currentLevel, setCurrentLevel,
+        currentIndex, setCurrentIndex,
+        createGrid, flashingAddresses, size,
+        initialGameState
+    } = useGlobalState();
+    
+    const [currentMode, setCurrentMode] = useState("");
 
-/*const mybutton = async id => {
-    const 
-    id.preventDefault();
-    try {
-        console.log("power"))
-        };
-    } catch (err) {
-        console.error(err.message);
-    }
-*/
-
-function Menu() {
-
-
-    const powerbutton = (e) => {
+    const powerbutton = () => {
         console.log('Segaaaaa!');
     }
-    const startbutton = (e) => {
-        console.log('Ready...Set...Go!')
-
+    
+    const startbutton = () => {
+        console.log('on your mark...set...go');
     }
-    const soundbutton = (e) => {
+    const soundbutton = () => {
         console.log('cue Sonic music');
     }
-    const helpbutton = (e) => {
+    
+    const helpbutton = () => {
         console.log('Help me!');
     }
-    const modesbutton = (e) => {
+    
+    const modesbutton = () => {
+        setPlayGame(prevState => !prevState);
+        setCreateGame(prevState => !prevState);
+        if (playGame) {
+            setCurrentMode("Play");
+            setGamerunning(true);
+        } else if (createGame) {
+            setCurrentMode("Create");
+            setGamerunning(false);
+        }
+        console.log('setPlayGame:', playGame);
+        console.log('setCreateGame:',createGame);
         console.log('Select a different mode');
     }
-  return (
-                  <table>
-                      <tbody>
-                          <tr>
-                              <td>
-                                  <button
-                                      className="buttonmenu"
-                                      onClick={powerbutton}
-                                  >
-                                  </button>
-                              </td>
-                              <th>ON/OFF</th>
-                          </tr>
-                          <tr>
-                              <td>
-                                  <button
-                                      className="buttonmenu"
-                                      onClick={startbutton}
-                                  >
-                                  </button>
-                              </td>
-                              <th>START</th>
-                          </tr>
-                          <tr>
-                              <td>
-                                  <button
-                                      className="buttonmenu"
-                                      onClick={soundbutton}
-                                  >
-                                  </button>
-                              </td>
-                              <th>SOUND</th>
-                          </tr>
-                          <tr>
-                              <td>
-                                  <button
-                                      className="buttonmenu"
-                                      onClick={helpbutton}
-                                  >
-                                  </button>
-                              </td>
-                              <th>HELP</th>
-                          </tr>
-                          <tr>
-                              <td>
-                                  <button
-                                      className="buttonmenu"
-                                      onClick={modesbutton}
-                                  >
-                                  </button>
-                              </td>
-                              <th>MODES</th>
-                          </tr>
-                      </tbody>
-                  </table>
-  );
+    
+    useEffect(() => {
+        console.log('Gamerunning after update:', gamerunning);
+    }, [gamerunning]);
+    return (
+        <table>
+            <tbody>
+                {/* <tr className="tablerow">
+                    <td className="tabledata">
+                        <button
+                            className="buttonmenu"
+                            onClick={powerbutton}
+                        >
+                            ON/OFF
+                        </button>
+                    </td>
+                </tr> */}
+                <tr className="tablerow">
+                    <td className="tabledata">
+                            <Resetpuzzlebutton />
+                    </td>
+                </tr>
+                <tr className="tablerow">
+                    <td className="tabledata">
+                        <button
+                            className="buttonmenu"
+                            onClick={startbutton}
+                        >
+                            START
+                        </button>
+                    </td>
+                </tr>
+                <tr className="tablerow">
+                    <td className="tabledata">
+                        <button
+                            className="buttonmenu"
+                            onClick={soundbutton}
+                        >
+                            SOUND
+                        </button>
+                    </td>
+                </tr>
+                <tr className="tablerow">
+                    <td className="tabledata">
+                        <button
+                            className="buttonmenu"
+                            onClick={helpbutton}
+                        >
+                            HELP
+                        </button>
+                    </td>
+                </tr>
+                <tr className="tablerow">
+                    <td className="tabledata">
+                        <button
+                            className="buttonmenu"
+                            onClick={modesbutton}
+                        >
+                            MODES
+                        </button>
+                    </td>
+                </tr>
+                {/* <tr className="tablerow">
+                    <td className="tabledata">
+                        <div
+                            className="tabledata"
+                        >
+                            CURRENT MODE: {currentMode}
+                        </div>
+                    </td>
+                </tr> */}
+            </tbody>
+        </table>
+    );
+
 }
-
-
-export default Menu;

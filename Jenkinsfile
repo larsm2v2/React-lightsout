@@ -22,8 +22,7 @@ pipeline {
                 echo "Testing.."
                 sh '''
                 cd React-LightsOut
-                python3 hello.py
-                python3 hello.py --name=Brad
+                echo "Directory is ${pwd}"
                 '''
             }
         }

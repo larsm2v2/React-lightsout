@@ -24,11 +24,11 @@
   width: calc(var(--size) * 20); 
   padding: calc(var(--size) * 0); /* Adjusted button padding for better appearance */
   text-align: center;
-  max-height: 30px;
+  max-height: 25px;
   max-width: 200px;
   min-height: 15px;
   min-width: 50px;
-  font-size: calc(var(--size) * 1.9);
+  font-size: clamp(10px,calc(var(--size) * 1.9), 25px);
 }
 
 .tablerow {

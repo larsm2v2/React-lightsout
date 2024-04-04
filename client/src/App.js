@@ -4,13 +4,9 @@ import './index.css'
 
 // Import Components //
 import Game from './components/Game/Game';
-//import Game2 from './components/Game2/Game2';
 import TitleMenu from './components/TitleMenu/TitleMenu';
-//import Header from './components/Header/Header';
-
 
 //Components//
-
 const App = () => {
   return (
     <Fragment>
@@ -21,8 +17,5 @@ const App = () => {
     </Fragment>
   );
 }
-
-
-    
 
 export default App;

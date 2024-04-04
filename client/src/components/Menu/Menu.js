@@ -6,6 +6,7 @@ import puzzles from "../Puzzle/Puzzle.js";
 import Resetpuzzlebutton from '../ResetPuzzle.js'
 
 export default function Menu() {
+    //all consts are included for consistency --> the preferred way to handle this is better state management
     const { game, setGame,
         gamerunning, setGamerunning,
         playGame, setPlayGame,
@@ -57,16 +58,6 @@ export default function Menu() {
     return (
         <table>
             <tbody>
-                {/* <tr className="tablerow">
-                    <td className="tabledata">
-                        <button
-                            className="buttonmenu"
-                            onClick={powerbutton}
-                        >
-                            ON/OFF
-                        </button>
-                    </td>
-                </tr> */}
                 <tr className="tablerow">
                     <td className="tabledata">
                             <Resetpuzzlebutton />
@@ -110,17 +101,8 @@ export default function Menu() {
                         >
                             MODES
                         </button>
-                    </td>
+                    </td> 
                 </tr>
-                {/* <tr className="tablerow">
-                    <td className="tabledata">
-                        <div
-                            className="tabledata"
-                        >
-                            CURRENT MODE: {currentMode}
-                        </div>
-                    </td>
-                </tr> */}
             </tbody>
         </table>
     );
